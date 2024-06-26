@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.4 on win32)" generated="2024-06-26T10:12:02.567592" rpa="false" schemaversion="5">
+<suite id="s1" name="5 Verify Add Pet Suite" source="C:\Mine\Company\Swift Support 2 Jun 2024\AutomationFramework\api_test_suite\5_verify_add_pet_suite.robot">
+<kw name="Create Session With Bearer Token" owner="CommonFunctionality" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-26T10:12:04.680541" level="INFO">${headers} = {'Authorization': 'Bearer xxxx'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer xxxx</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-26T10:12:04.680541" elapsed="0.000997"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-26T10:12:04.682535" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={'Authorization': 'Bearer xxxx'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=petstore</arg>
+<arg>url=https://petstore.swagger.io/v2</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-26T10:12:04.682535" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-06-26T10:12:04.679543" elapsed="0.003990"/>
+</kw>
+<test id="s1-t1" name="Verify Add Pet Test_TC1" line="16">
+<kw name="Verify Add Pet Template">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-26T10:12:04.685528" level="INFO">&amp;{header} = { Content-Type=application/json | Connection=keep-alive }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Connection=keep-alive</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-26T10:12:04.684530" elapsed="0.000998"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-06-26T10:12:05.270700" level="INFO">POST Request : url=https://petstore.swagger.io/v2/pet 
+ path_url=/v2/pet 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer xxxx', 'Content-Type': 'application/json', 'Content-Length': '273'} 
+ body={
+    "id": 501,
+    "category": {
+        "id": 0,
+        "name": "string"
+    },
+    "name": "doggie501444",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "available"
+} 
+ </msg>
+<msg time="2024-06-26T10:12:05.271700" level="INFO">POST Response : url=https://petstore.swagger.io/v2/pet 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 26 Jun 2024 09:12:06 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":501,"category":{"id":0,"name":"string"},"name":"doggie501444","photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"available"} 
+ </msg>
+<msg time="2024-06-26T10:12:05.271700" level="INFO">C:\Program Files\Python311\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-06-26T10:12:05.273719" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet</arg>
+<arg>headers=${header}</arg>
+<arg>data=${pet_json}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-26T10:12:04.685528" elapsed="0.589153"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-06-26T10:12:05.278679" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()}[id]</arg>
+<arg>${expected_pet_id}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-06-26T10:12:05.275678" elapsed="0.003993"/>
+</kw>
+<arg>{
+    "id": 501,
+    "category": {
+        "id": 0,
+        "name": "string"
+    },
+    "name": "doggie501444",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "available"
+}</arg>
+<arg>501</arg>
+<status status="PASS" start="2024-06-26T10:12:04.684530" elapsed="0.596141"/>
+</kw>
+<status status="PASS" start="2024-06-26T10:12:04.683533" elapsed="0.598139"/>
+</test>
+<test id="s1-t2" name="Verify Add Pet Test_TC2" line="16">
+<kw name="Verify Add Pet Template">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-26T10:12:05.294630" level="INFO">&amp;{header} = { Content-Type=application/json | Connection=keep-alive }</msg>
+<var>&amp;{header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Connection=keep-alive</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-26T10:12:05.293635" elapsed="0.000995"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-06-26T10:12:05.422298" level="INFO">POST Request : url=https://petstore.swagger.io/v2/pet 
+ path_url=/v2/pet 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer xxxx', 'Content-Type': 'application/json', 'Content-Length': '273'} 
+ body={
+    "id": 502,
+    "category": {
+        "id": 0,
+        "name": "string"
+    },
+    "name": "doggie501444",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "available"
+} 
+ </msg>
+<msg time="2024-06-26T10:12:05.423300" level="INFO">POST Response : url=https://petstore.swagger.io/v2/pet 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 26 Jun 2024 09:12:06 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":502,"category":{"id":0,"name":"string"},"name":"doggie501444","photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"available"} 
+ </msg>
+<msg time="2024-06-26T10:12:05.424292" level="INFO">C:\Program Files\Python311\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-06-26T10:12:05.425282" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet</arg>
+<arg>headers=${header}</arg>
+<arg>data=${pet_json}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-26T10:12:05.295629" elapsed="0.129653"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-06-26T10:12:05.431821" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()}[id]</arg>
+<arg>${expected_pet_id}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-06-26T10:12:05.426286" elapsed="0.006534"/>
+</kw>
+<arg>{
+    "id": 502,
+    "category": {
+        "id": 0,
+        "name": "string"
+    },
+    "name": "doggie501444",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "available"
+}</arg>
+<arg>502</arg>
+<status status="PASS" start="2024-06-26T10:12:05.291656" elapsed="0.142160"/>
+</kw>
+<status status="PASS" start="2024-06-26T10:12:05.283656" elapsed="0.151154"/>
+</test>
+<kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
+<msg time="2024-06-26T10:12:05.438806" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2024-06-26T10:12:05.437808" elapsed="0.003984"/>
+</kw>
+<doc>This suite file contains all testcase related to valid pet search
+connected to required R01 and testcase TC_01</doc>
+<status status="PASS" start="2024-06-26T10:12:02.570585" elapsed="2.872200"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="5 Verify Add Pet Suite">5 Verify Add Pet Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

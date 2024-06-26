@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.4 on win32)" generated="2024-06-26T10:32:07.615562" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo4 Advance Suite" source="C:\Mine\Company\Swift Support 2 Jun 2024\AutomationProject\demo3_selenium_suite\demo4_advance_suite.robot">
+<test id="s1-t1" name="TC4 JS" line="52">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:07.995569" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-26T10:32:07.994574" elapsed="2.602491"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-26T10:32:10.598066" elapsed="0.044794"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2024-06-26T10:32:10.644823" elapsed="0.004980"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:10.652800" level="INFO">Opening url 'https://www.citibank.co.in/ssjsps/forgetuseridmidssi.jsp'</msg>
+<arg>url=https://www.citibank.co.in/ssjsps/forgetuseridmidssi.jsp</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-26T10:32:10.651818" elapsed="3.879168"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:14.532979" level="INFO">Clicking element 'link=select your product type'.</msg>
+<arg>link=select your product type</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-26T10:32:14.531982" elapsed="3.007243"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:17.540224" level="INFO">Clicking element 'link=Credit Card'.</msg>
+<arg>link=Credit Card</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-26T10:32:17.539225" elapsed="0.184279"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:17.725503" level="INFO">Typing text '2333' into text field 'id=citiCard1'.</msg>
+<arg>id=citiCard1</arg>
+<arg>2333</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-26T10:32:17.723504" elapsed="0.128654"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:17.853155" level="INFO">Typing text '4443' into text field 'css=#citiCard2'.</msg>
+<arg>css=#citiCard2</arg>
+<arg>4443</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-26T10:32:17.853155" elapsed="0.071809"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:17.925963" level="INFO">Typing text '5454' into text field 'css=input[name='citiCard3']'.</msg>
+<arg>css=input[name='citiCard3']</arg>
+<arg>5454</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-26T10:32:17.924964" elapsed="0.078790"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:18.019712" level="INFO">${ele} = &lt;selenium.webdriver.remote.webelement.WebElement (session="e09654b88d313dd175944d978997426f", element="f.018E958002E102ACC3445F427DB9403C.d.CEDD23A0068406B9AA6EA94162DD5F5A.e.11")&gt;</msg>
+<var>${ele}</var>
+<arg>xpath=//input[@id='bill-date-long']</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-06-26T10:32:18.003754" elapsed="0.016954"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2024-06-26T10:32:18.021705" level="INFO">Executing JavaScript:
+arguments[0].value='14/09/2000'
+By using argument:
+'&lt;selenium.webdriver.remote.webelement.WebElement (session="e09654b88d313dd175944d978997426f", element="f.018E958002E102ACC3445F427DB9403C.d.CEDD23A0068406B9AA6EA94162DD5F5A.e.11")&gt;'</msg>
+<arg>arguments[0].value='14/09/2000'</arg>
+<arg>ARGUMENTS</arg>
+<arg>${ele}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2024-06-26T10:32:18.020708" elapsed="0.009986"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-26T10:32:23.032184" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-26T10:32:18.030694" elapsed="5.001490"/>
+</kw>
+<status status="PASS" start="2024-06-26T10:32:07.993598" elapsed="15.039586"/>
+</test>
+<status status="PASS" start="2024-06-26T10:32:07.618552" elapsed="15.417326"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo4 Advance Suite">Demo4 Advance Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

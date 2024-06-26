@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-workspace name="SOAPProject2" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:project name="Calc">C:/Mine/Company/Swift Support 2 Jun 2024/Calc-soapui-project.xml</con:project>
+  <con:project name="REST Project 1">C:/Mine/Company/Swift Support 2 Jun 2024/REST-Project-1-soapui-project.xml</con:project>
+</con:soapui-workspace>

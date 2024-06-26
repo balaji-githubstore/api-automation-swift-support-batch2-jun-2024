@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.4 on win32)" generated="2024-06-26T10:05:34.842861" rpa="false" schemaversion="5">
+<suite id="s1" name="Verify Valid Pet Suite" source="C:\Mine\Company\Swift Support 2 Jun 2024\AutomationFramework\api_test_suite\1__verify_valid_pet_suite.robot">
+<kw name="Create Session With Bearer Token" owner="CommonFunctionality" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-26T10:05:35.387686" level="INFO">${headers} = {'Authorization': 'Bearer xxxx'}</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer xxxx</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-26T10:05:35.387686" elapsed="0.000000"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-06-26T10:05:35.387686" level="INFO">Creating Session using : alias=petstore, url=https://petstore.swagger.io/v2, headers={'Authorization': 'Bearer xxxx'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=petstore</arg>
+<arg>url=https://petstore.swagger.io/v2</arg>
+<arg>headers=${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-06-26T10:05:35.387686" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-06-26T10:05:35.386699" elapsed="0.001984"/>
+</kw>
+<test id="s1-t1" name="TC3" line="20">
+<kw name="Verify Valid Pet By ID Template">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-06-26T10:05:35.957187" level="INFO">GET Request : url=https://petstore.swagger.io/v2/pet/10 
+ path_url=/v2/pet/10 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer xxxx'} 
+ body=None 
+ </msg>
+<msg time="2024-06-26T10:05:35.958185" level="INFO">GET Response : url=https://petstore.swagger.io/v2/pet/10 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 26 Jun 2024 09:05:37 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"id":10,"category":{"id":10,"name":"string"},"name":"doggie","photoUrls":["string"],"tags":[{"id":10,"name":"string"}],"status":"string"} 
+ </msg>
+<msg time="2024-06-26T10:05:35.958185" level="INFO">C:\Program Files\Python311\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-06-26T10:05:35.958185" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=petstore</arg>
+<arg>url=/pet/${pet_id}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-06-26T10:05:35.388683" elapsed="0.569502"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-06-26T10:05:35.960181" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()}[id]</arg>
+<arg>${pet_id}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-06-26T10:05:35.959182" elapsed="0.001995"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-06-26T10:05:35.964182" level="FAIL">doggie != Hershey</msg>
+<arg>${response.json()}[name]</arg>
+<arg>${pet_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="FAIL" start="2024-06-26T10:05:35.961177" elapsed="0.003987">doggie != Hershey</status>
+</kw>
+<arg>10</arg>
+<arg>Hershey</arg>
+<status status="FAIL" start="2024-06-26T10:05:35.388683" elapsed="0.577489">doggie != Hershey</status>
+</kw>
+<status status="FAIL" start="2024-06-26T10:05:35.388683" elapsed="0.582467">doggie != Hershey</status>
+</test>
+<kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
+<msg time="2024-06-26T10:05:35.977133" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2024-06-26T10:05:35.976137" elapsed="0.000996"/>
+</kw>
+<doc>This suite file contains all testcase related to valid pet search
+connected to required R01 and testcase TC_01</doc>
+<status status="FAIL" start="2024-06-26T10:05:34.845852" elapsed="1.131281"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Verify Valid Pet Suite">Verify Valid Pet Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
